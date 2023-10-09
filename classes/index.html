@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name; // this value with my equal to what the input is 
+                this.age = age;
+            }
+            greeting() {
+                console.log(`Welcome, ${this.name}. You are ${this.age} years old.`)
+            }
+        }
+
+        let William = new Person('William', 21);
+        William.greeting();
+
+        // extend classes
+        class Student extends Person {
+            constructor(name, age, major) {
+                super(name, age);
+                this.major = major;
+            }
+            greeting() {
+                super.greeting();
+                console.log(`I am a student majoring in ${this.major}.`);
+            }
+        }
+
+
+        let Abigail = new Student('Abigail', 23, 'Threater');
+        Abigail.greeting();
+
+
+        class Vehicle {
+            constructor(make, year, model) {
+                this.make = make;
+                this.model = model;
+                this.year = year;
+            }
+            vInfo() {
+                return `This vehicle is a ${this.year} ${this.make} ${this.model}.`;
+
+            }
+
+        }
+
+        class Car extends Vehicle {
+            constructor(doors, transmission, ...args) {
+                super(...args);
+                this.doors = doors;
+                this.transmission = transmission;
+                this.wheels = 4;
+            }
+        }
+
+        let charger = new Car("Dodge", "Charger", "2000", 4, "automatic");
+        console.log(charger.vInfo());
+        console.log(charger.doors, charger.transmission, charger.wheels);
+
+        class Motorcycle extends Vehicle {
+            constructor() {
+                super(...arguments);
+                this.wheels = 2;
+
+            }
+            caution() {
+                console.log("make sure you purchase a helmet.");
+            }
+        }
+
+        let hdCycle = new Motorcycle("Harley Davidson", "ES210", "2023");
+        hdCycle.vInfo()
+        console.log(hdCycle.vInfo());
+    </script>
+</body>
+
+</html>

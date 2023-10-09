@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // spread
+        // takes an array and SPREADS them out to individual values
+
+        let arr1 = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        let arr3 = [7, 8, 9];
+
+        let combine = [...arr1, ...arr2, ...arr3];
+        console.log("Spread:", combine);
+        console.log("Max Value:", Math.max(...combine));
+
+        function sumVal(a, b, c) {
+            return a + b + c;
+        }
+        console.log("Sums:", sumVal(...arr1));
+
+
+        //start [1,6] [2,3,4,5]
+        //end [1,2,3,4,5,6]
+
+        function inMiddle(arr, vals) {
+            let mdi = Math.floor(arr.length / 2); // midpoint
+            arr.splice(mid, 0, ...vals);
+            return arr;
+        }
+
+        console.log()
+        comso
+
+    </script>
+
+</body>
+
+</html>

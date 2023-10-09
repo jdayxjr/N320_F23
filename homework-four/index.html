@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+</head>
+
+<body>
+
+
+    <div id="studentNames"></div>
+    <div id="passResult"></div>
+    <div id="perfectScoreResult"></div>
+    <ul id="highAverageStudents"></ul>
+    <div id="totalGrades"></div>
+
+    <script>
+        const students = [{
+                name: 'Alice',
+                grades: [80, 90, 95]
+            },
+            {
+                name: 'Bob',
+                grades: [70, 85, 100]
+            },
+            // ... more student data
+        ];
+
+        // Displaying names of each student
+        const studentNamesContainer = document.getElementById('studentNames');
+        students.forEach(student => {
+            const studentNameElement = document.createElement('div');
+            studentNameElement.innerText = `Student Name: ${student.name}`;
+            studentNamesContainer.appendChild(studentNameElement);
+        });
+
+        // Checking if all students passed
+        const allPassed = students.every(student => student.grades.every(grade => grade >= 60));
+        const passResultContainer = document.getElementById('passResult');
+        passResultContainer.innerText = `All students passed: ${allPassed ? 'Yes' : 'No'}`;
+
+        // Checking if any student achieved a perfect score
+        const hasPerfectScore = students.some(student => student.grades.every(grade => grade === 100));
+        const perfectScoreResultContainer = document.getElementById('perfectScoreResult');
+        perfectScoreResultContainer.innerText = `Any student got a perfect score: ${hasPerfectScore ? 'Yes' : 'No'}`;
+
+        // Filtering students with average grade of 90 or higher
+        const highAverageStudents = students.filter(student => {
+            const averageGrade = student.grades.reduce((sum, grade) => sum + grade, 0) / student.grades.length;
+            return averageGrade >= 90;
+        });
+
+        // Displaying students with high average grades
+        const highAverageStudentsList = document.getElementById('highAverageStudents');
+        highAverageStudents.forEach(student => {
+            const listItem = document.createElement('li');
+            listItem.innerText = `Name: ${student.name}, Average Grade: ${(
+        student.grades.reduce((sum, grade) => sum + grade, 0) / student.grades.length
+      ).toFixed(2)}`;
+            highAverageStudentsList.appendChild(listItem);
+        });
+
+        // Calculating total number of grades across all students
+        const totalGrades = students.reduce((total, student) => total + student.grades.length, 0);
+        const totalGradesContainer = document.getElementById('totalGrades');
+        totalGradesContainer.innerText = `Total number of grades across all students: ${totalGrades}`;
+
+    </script>
+</body>
+
+</html>
