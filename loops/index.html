@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // loop
+        let w = 0;
+        while (w < 5) {
+            console.log("While: ", w);
+            w++;
+
+            // Do while
+            let d = 10;
+            do {
+                console.log("DoWhile: ", d)
+            } while (d < 5);
+
+            const Course = {
+                "cNum": 'N320',
+                "cTitle": 'Introduction to Vue',
+                "prerq": false,
+                "offering": ['Fall', 'Winter', 'Spring', 'Summer'],
+                "limit": 20
+
+            }
+            let seasons = ['Fall', 'Winter', 'Spring', 'Summer'];
+
+            let holiday = 'halloween';
+            //For...in
+            for (property in Course) {
+                console.log(property + ": " + Course[property])
+
+            }
+
+            for (s in seasons) {
+                console.log(s + ": " + seasons[s]);
+            }
+
+            for (h in holiday) {
+                console.log(h + ": " + holiday[h]);
+            }
+            //For...of
+            for (s of seasons) {
+                console.log(s);
+            }
+
+            for (h of holiday) {
+                console.log(h);
+            }
+        }
+    </script>
+</body>
+
+</html>
